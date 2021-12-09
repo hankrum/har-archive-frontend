@@ -1,0 +1,16 @@
+<div class="upload-container">
+    <form name="uploadForm" id="uploadForm" #uploadForm="ngForm" (ngSubmit)="formReset(uploadForm.value)">
+        <input name="file" type="file" class="file-upload" multiple accept=".har" (change)="onFilesSelected($event)"/>
+        <label>Enter file path on archive:</label>
+        <input name="path" #path />
+        <button class="upload-submit" type="submit" (click)="onSubmit(path.value)">Submit</button>
+    </form>
+</div>
+<ul>
+    <li *ngFor="let name of fileNamesList">
+        {{name}}
+    </li>
+</ul>
+<div>
+    {{content}}
+</div>
