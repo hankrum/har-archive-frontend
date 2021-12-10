@@ -1,7 +1,14 @@
-<dir>
+<div>
     <form>
         <label>Enter file path on archive:</label>
         <input name="path" #path />
         <button class="preview-submit" type="submit" (click)="preview(path.value)">Preview</button>
     </form>
-</dir>
+</div>
+<div>
+    <ul>
+        <li *ngFor="let file of harFiles$ | async">
+            {{file.name}}
+        </li>
+    </ul>
+</div>

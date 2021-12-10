@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Observable } from "rxjs";
 import { HarFile } from "./models/harFile";
 import { ApiService } from "./services/apiservice.service";
 
@@ -8,11 +9,11 @@ import { ApiService } from "./services/apiservice.service";
     styleUrls: ['./preview.component.scss']
 })
 export class PreviewComponent {
-    harFiles: HarFile[] = [];
+    harFiles$!: Observable<HarFile[]>;
 
     constructor(private apiService: ApiService) { }
     
     preview(path: string){
-
+        this.harFiles$ = this.apiService.getFilesByPath(path);
     }
 }
