@@ -26,7 +26,7 @@ import { AuthGuard } from './guards/auth-guard.service';
     JwtModule.forRoot({
       config: {
         tokenGetter: () => localStorage.getItem('jwt'),
-        allowedDomains: ["localhost:5000"],
+        allowedDomains: ["localhost:8081"],
         disallowedRoutes: []
       }
     })
